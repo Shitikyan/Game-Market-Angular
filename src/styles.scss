@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+body::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  body::-webkit-scrollbar-thumb {
+    background: #007AFF;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  body::-webkit-scrollbar-thumb:hover {
+    background: #007AFF; 
+  }
+body{
+    background-color: #121212;
+    overflow-x: hidden;
+}
+.toast-success{
+    background-color: #007AFF !important;
+}
+
+@media(max-width: 991px){
+    .container{
+        width: 100%;
+        max-width: 100%;
+    }
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.auth-modal{
+  .mat-dialog-container{
+    background-color: #121212;
+    border-radius: 10px;
+  }
+}

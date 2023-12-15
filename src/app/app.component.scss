@@ -1,0 +1,16 @@
+.app-root{
+    .header{
+        height: 52px;
+        background: #2A2A2A;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+        width: 100%;
+    }
+    .hot-games{
+        padding-top: 60px;
+    }
+    .router-outlet{
+        padding-top: 20px;
+    }
+}

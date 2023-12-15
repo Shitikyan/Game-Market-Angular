@@ -1,0 +1,60 @@
+<div (ngxOutsideClick)="outsideClick()" class="header">
+    <div class="container header-side">
+        <div class="left-side">
+            <img class="logo" routerLink="/home" src="../../../../assets/images/icons/logo.svg" alt="">
+            <div  class="nav-side">
+                <a [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" routerLink="/home" class="item">
+                    {{'header.home' | translate}}
+                    <span class="line"></span>
+                </a>
+
+                <a routerLink="/all-games" routerLinkActive="active" class="item">
+                    {{'header.allGames' | translate}}
+                    <span class="line"></span>
+                </a>
+
+                <a routerLink="/wishlist" routerLinkActive="active" class="item">
+                    {{'header.wishList' | translate}}
+                    <span class="line"></span>
+                </a>
+
+                <a routerLink="/live-games" routerLinkActive="active" class="item">
+                    {{'header.liveStreams' | translate}}
+                    <span class="live">LIVE</span>
+                    <span class="line"></span>
+                </a>
+
+            </div>
+        </div>
+        <div class="right-side">
+            <ul class="options-ul">
+                <li (click)="showLanguageBlock()" class="list">
+                    <img class="icon" src="../../../../assets/images/icons/language.svg" alt="">
+                </li>
+
+                <li [routerLink]="'/account'" *ngIf="getUserAccess" class="list">
+                    <img class="icon" src="../../../../assets/images/icons/user.svg" alt="">
+                    <span class="user-name">{{user.name}}</span>
+                </li>
+
+                <li *ngIf="!getUserAccess;else logoutSide" (click)="openDialog()" class="list login">
+                    <span class="user-name">
+                        {{'header.login' | translate}}
+                    </span>
+                </li>
+                <li [ngClass]="{'active': showLanguage}" class="language">
+                    <span *ngFor="let language1 of languages; let i = index" class="language-item" [ngClass]="{'active': selectedLanguage === i}" (click)="selectLanguage(language1.short,i)">
+                        {{'language.' + language1.title | translate}}
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+  <ng-template #logoutSide>
+    <li (click)="logout()" class="list login">
+      <span class="user-name">
+        {{'header.logout' | translate}}
+      </span>
+    </li>
+  </ng-template>
+</div>
